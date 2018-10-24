@@ -1,0 +1,41 @@
+{
+	"name": "lungo-cli",
+	"version": "0.0.0",
+	"description": "Control the Lungo app from the command-line",
+	"license": "MIT",
+	"repository": "sindresorhus/lungo-cli",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"bin": {
+		"lungo": "cli.js"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"cli.js",
+		"api.js"
+	],
+	"keywords": [
+		"cli-app",
+		"cli",
+		"lungo",
+		"macos",
+		"app",
+		"control"
+	],
+	"dependencies": {
+		"meow": "^5.0.0"
+	},
+	"devDependencies": {
+		"ava": "^0.25.0",
+		"execa": "^1.0.0",
+		"xo": "^0.23.0"
+	}
+}
