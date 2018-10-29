@@ -12,7 +12,7 @@ const execute = async (command, args = {}) => {
 	}
 
 	const searchParams = new URLSearchParams(args);
-	await execFile('open', [`lungo:${command}?${searchParams.toString()}`]);
+	await execFile('open', ['-g', `lungo:${command}?${searchParams.toString()}`]);
 };
 
 const lungo = module.exports;
