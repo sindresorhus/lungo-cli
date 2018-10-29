@@ -1,6 +1,6 @@
 {
 	"name": "lungo-cli",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Control the Lungo app from the command-line",
 	"license": "MIT",
 	"repository": "sindresorhus/lungo-cli",
