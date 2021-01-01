@@ -1,4 +1,4 @@
-# lungo-cli [![Build Status](https://travis-ci.org/sindresorhus/lungo-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/lungo-cli)
+# lungo-cli
 
 > Control the [Lungo app](https://sindresorhus.com/lungo) from the command-line
 
