@@ -1,21 +1,19 @@
-'use strict';
-const util = require('util');
-const {URLSearchParams} = require('url');
-const childProcess = require('child_process');
+import {promisify} from 'node:util';
+import childProcess from 'node:child_process';
 
-const execFile = util.promisify(childProcess.execFile);
+const execFile = promisify(childProcess.execFile);
 
-const execute = async (command, args = {}) => {
-	const invalidArguments = Object.keys(args).filter(key => !['hours', 'minutes'].includes(key));
+const execute = async (command, arguments_ = {}) => {
+	const invalidArguments = Object.keys(arguments_).filter(key => !['hours', 'minutes'].includes(key));
 	if (invalidArguments.length > 0) {
-		throw new Error(`Invalid argument keys: ${invalidArguments.join()}`);
+		throw new Error(`Invalid argument keys: ${invalidArguments.join(',')}`);
 	}
 
-	const searchParams = new URLSearchParams(args);
-	await execFile('open', ['-g', `lungo:${command}?${searchParams.toString()}`]);
+	const searchParameters = new URLSearchParams(arguments_);
+	await execFile('open', ['--background', `lungo:${command}?${searchParameters.toString()}`]);
 };
 
-const lungo = module.exports;
+const lungo = {};
 
 lungo.activate = async duration => {
 	await execute('activate', duration);
@@ -28,3 +26,5 @@ lungo.deactivate = async () => {
 lungo.toggle = async duration => {
 	await execute('toggle', duration);
 };
+
+export default lungo;

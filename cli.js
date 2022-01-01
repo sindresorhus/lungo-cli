@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-'use strict';
-const meow = require('meow');
-const lungo = require('./api');
+import meow from 'meow';
+import lungo from './api.js';
 
 const cli = meow(`
 	Usage
@@ -27,25 +26,40 @@ const cli = meow(`
 
 	You can also toggle by leaving out the command.
 `, {
+	importMeta: import.meta,
 	flags: {
 		hours: {
 			type: 'string',
-			alias: 'h'
+			alias: 'h',
 		},
 		minutes: {
 			type: 'string',
-			alias: 'm'
-		}
-	}
+			alias: 'm',
+		},
+	},
 });
 
 let method = cli.input[0];
-if (method === 'on') {
-	method = 'activate';
-} else if (method === 'off') {
-	method = 'deactivate';
-} else if (method === undefined) {
-	method = 'toggle';
+switch (method) {
+	case 'on': {
+		method = 'activate';
+
+		break;
+	}
+
+	case 'off': {
+		method = 'deactivate';
+
+		break;
+	}
+
+	case undefined: {
+		method = 'toggle';
+
+		break;
+	}
+
+	// No default
 }
 
 const options = cli.flags;

@@ -2,15 +2,13 @@
 
 > Control the [Lungo app](https://sindresorhus.com/lungo) from the command-line
 
-
 ## Install
 
-```
-$ npm install --global lungo-cli
+```sh
+npm install --global lungo-cli
 ```
 
-*Requires [Node.js 8](https://nodejs.org).*
-
+*Requires [Node.js 12](https://nodejs.org).*
 
 ## Usage
 
@@ -40,8 +38,3 @@ $ lungo --help
 
   You can also toggle by leaving out the command.
 ```
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
