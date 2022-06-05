@@ -33,7 +33,8 @@
 		"control"
 	],
 	"dependencies": {
-		"meow": "^10.1.2"
+		"meow": "^10.1.2",
+		"tempy": "^3.0.0"
 	},
 	"devDependencies": {
 		"ava": "^4.3.0",

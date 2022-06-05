@@ -1,5 +1,9 @@
 import {promisify} from 'node:util';
 import childProcess from 'node:child_process';
+import path from 'node:path';
+import fs from 'node:fs';
+import {execa} from 'execa';
+import {temporaryDirectory} from 'tempy';
 
 const execFile = promisify(childProcess.execFile);
 
@@ -25,6 +29,15 @@ lungo.deactivate = async () => {
 
 lungo.toggle = async duration => {
 	await execute('toggle', duration);
+};
+
+lungo.isActive = async () => {
+	const directory = temporaryDirectory();
+
+	// We use `execa` to be able to ignore `stdin` which prevents a hang.
+	await execa('shortcuts', ['run', 'Is Lungo Active', '--output-path', directory], {stdio: 'ignore'});
+
+	return fs.existsSync(path.join(directory, 'Yes.txt'));
 };
 
 export default lungo;

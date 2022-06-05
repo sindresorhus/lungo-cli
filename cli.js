@@ -10,6 +10,7 @@ const cli = meow(`
 	  on
 	  off
 	  toggle
+	  is-active
 
 	Options
 	  --hours -h    Hours Lungo should be active
@@ -21,6 +22,9 @@ const cli = meow(`
 	  $ lungo off
 	  $ lungo toggle --hours=1.5
 	  $ lungo
+
+	  $ lungo is-active
+	  true
 
 	If you don't specify a duration, it will use the default duration.
 
@@ -53,6 +57,12 @@ switch (method) {
 		break;
 	}
 
+	case 'is-active': {
+		method = 'isActive';
+
+		break;
+	}
+
 	case undefined: {
 		method = 'toggle';
 
@@ -66,6 +76,7 @@ const options = cli.flags;
 delete options.h;
 delete options.m;
 
-(async () => {
-	await lungo[method](options);
-})();
+const returnValue = await lungo[method](options);
+if (returnValue !== undefined) {
+	console.log(returnValue);
+}
