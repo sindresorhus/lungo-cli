@@ -8,7 +8,7 @@
 npm install --global lungo-cli
 ```
 
-*Requires [Node.js 12](https://nodejs.org).*
+*Requires [Node.js 14](https://nodejs.org).*
 
 ## Usage
 
