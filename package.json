@@ -34,11 +34,11 @@
 	],
 	"dependencies": {
 		"meow": "^10.1.2",
-		"tempy": "^3.0.0"
+		"tempy": "^3.0.0",
+		"execa": "^6.1.0"
 	},
 	"devDependencies": {
 		"ava": "^4.3.0",
-		"execa": "^6.1.0",
 		"xo": "^0.49.0"
 	}
 }
