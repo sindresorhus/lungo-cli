@@ -4,16 +4,18 @@
 	"description": "Control the Lungo app from the command-line",
 	"license": "MIT",
 	"repository": "sindresorhus/lungo-cli",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
 		"url": "https://sindresorhus.com"
 	},
 	"bin": {
-		"lungo": "cli.js"
+		"lungo": "./cli.js"
 	},
 	"type": "module",
 	"exports": "./index.js",
+	"sideEffects": false,
 	"engines": {
 		"node": ">=14.16"
 	},

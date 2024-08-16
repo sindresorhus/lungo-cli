@@ -34,6 +34,8 @@ lungo.toggle = async duration => {
 lungo.isActive = async () => {
 	const directory = temporaryDirectory();
 
+	// TODO: Find a way to use `/dev/stdout` as the `--output-path`
+
 	// We use `execa` to be able to ignore `stdin` which prevents a hang.
 	await execa('shortcuts', ['run', 'Is Lungo Active', '--output-path', directory], {stdio: 'ignore'});
 
